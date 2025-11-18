@@ -17,12 +17,12 @@ public class DailyJobService {
         String apiResponse = externalApiClient.callExternalApi();
         LOGGER.info("External API call completed");
 
-        if (needNotify(apiResponse)) {
+//        if (needNotify(apiResponse)) {
             LOGGER.info("Notification required based on API response");
             slackClient.sendMessage("알림이 필요한 상황입니다.\n응답 값: " + apiResponse);
-        } else {
-            LOGGER.debug("No notification required for the current API response");
-        }
+//        } else {
+//            LOGGER.debug("No notification required for the current API response");
+//        }
     }
 
     private boolean needNotify(String apiResponse) {
