@@ -20,7 +20,6 @@ public class ExternalApiClient {
 
     private static final Logger LOGGER = LogManager.getLogger(ExternalApiClient.class);
     private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(15);
-    private static final String DEFAULT_TOKEN_URL = "https://api.kiwoom.com/oauth2/token";
 
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
@@ -76,10 +75,7 @@ public class ExternalApiClient {
             throw new IllegalStateException("TARGET_API_SECRET environment variable is not configured");
         }
 
-        String tokenUrl = System.getenv("TARGET_API_TOKEN_URL");
-        if (tokenUrl == null || tokenUrl.isBlank()) {
-            tokenUrl = DEFAULT_TOKEN_URL;
-        }
+        String tokenUrl = KiwoomApiEndpoints.resolve("/oauth2/token");
 
         Map<String, String> body = new HashMap<>();
         body.put("grant_type", "client_credentials");
