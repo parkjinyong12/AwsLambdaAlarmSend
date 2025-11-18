@@ -1,2 +1,5 @@
 .gradle/
 build/
+
+# Gradle wrapper distribution JAR should be downloaded at build time
+gradle/wrapper/gradle-wrapper.jar
