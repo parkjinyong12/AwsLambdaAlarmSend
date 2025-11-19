@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "scheduled-lambda"
+rootProject.name = "AwsLambdaAlarmSend"
