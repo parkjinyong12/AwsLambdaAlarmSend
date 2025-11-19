@@ -31,6 +31,10 @@ shadowJar {
     archiveClassifier.set("")
 }
 
+tasks.named('jar') {
+    enabled = false
+}
+
 tasks.named('build') {
     dependsOn tasks.named('shadowJar')
 }
